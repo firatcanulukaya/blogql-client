@@ -20,10 +20,16 @@ export const GET_POSTS = gql`
 export const POST_SUB = gql`
     subscription {
         postCreation {
-            id
             title
-            createdAt
-            updatedAt
+            description
+            id
+            comments {
+                id
+                text
+                createdBy {
+                    username
+                }
+            }
         }
     }
 `;
