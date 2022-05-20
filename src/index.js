@@ -15,11 +15,11 @@ import {Provider} from "react-redux";
 import store from "./redux";
 
 const httpLink = new HttpLink({
-    uri: 'http://10.80.0.168:3000/graphql'
+    uri: 'http://localhost:3000/graphql'
 });
 
 const wsLink = new GraphQLWsLink(createClient({
-    url: 'ws://10.80.0.168:3000/graphql',
+    url: 'ws://localhost:3000/graphql',
 }));
 
 const splitLink = split(
