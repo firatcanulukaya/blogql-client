@@ -5,8 +5,10 @@ import UpdateControl from "./apollo/UpdateControl";
 const App = () => {
     return (
         <>
-            <UpdateControl/>
-            <Blogs/>
+            <Blogs>
+                <UpdateControl />
+            </Blogs>
+
         </>
     );
 }
