@@ -1,7 +1,7 @@
 import {useQuery, useSubscription} from "@apollo/client";
 import {GET_POSTS, POST_SUB} from "./apollo/getGQL";
 
-const Blogs = () => {
+const Blogs = (props) => {
     const {loading, error, data} = useQuery(GET_POSTS);
 
     if (loading) return <p>Loading...</p>;
@@ -17,6 +17,12 @@ const Blogs = () => {
                     </div>
                 ))
             }
+            {props.children /*
+                Burada props.children ile gelen sub kontrolcüsünü ekliyoruz.
+                Bu kontrolcüyü tanımlayarak, sunucudan gelen bilgilerin
+                cache'e yazılmasını sağlıyoruz.
+                # Mantıksal işlemler için lütfen UpdateControl.jsx dosyasına git
+            */}
         </div>
     )
 }
