@@ -17,12 +17,6 @@ const Blogs = (props) => {
                     </div>
                 ))
             }
-            {props.children /*
-                Burada props.children ile gelen sub kontrolcüsünü ekliyoruz.
-                Bu kontrolcüyü tanımlayarak, sunucudan gelen bilgilerin
-                cache'e yazılmasını sağlıyoruz.
-                # Mantıksal işlemler için lütfen UpdateControl.jsx dosyasına git
-            */}
         </div>
     )
 }
