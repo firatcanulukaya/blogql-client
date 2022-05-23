@@ -1,5 +1,5 @@
-import {useQuery, useSubscription} from "@apollo/client";
-import {GET_POSTS, POST_SUB} from "./apollo/getGQL";
+import {useQuery} from "@apollo/client";
+import {GET_POSTS} from "./apollo/getGQL";
 
 const Blogs = (props) => {
     const {loading, error, data} = useQuery(GET_POSTS);
