@@ -11,9 +11,11 @@ import {
 } from "@apollo/client";
 import {GraphQLWsLink,} from '@apollo/client/link/subscriptions';
 import {getMainDefinition} from '@apollo/client/utilities';
+import {setContext} from "@apollo/client/link/context";
 import {createClient} from 'graphql-ws';
 import {Provider} from "react-redux";
 import store from "./redux";
+
 
 const httpLink = new HttpLink({
     uri: process.env.REACT_APP_API_URL
@@ -35,8 +37,19 @@ const splitLink = split(
     httpLink,
 );
 
+
+const authLink = setContext((_, { headers }) => {
+    const token = localStorage.getItem("token");
+    return {
+        headers: {
+            ...headers,
+            authorization: token ?? ''
+        }
+    };
+});
+
 const client = new ApolloClient({
-    link: splitLink,
+    link: authLink.concat(splitLink),
     cache: new InMemoryCache()
 });
 

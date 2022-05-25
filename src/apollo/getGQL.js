@@ -58,3 +58,31 @@ export const POST_DELETE_SUB = gql`
         }
     }
 `;
+
+
+export const LOGIN = gql`
+    mutation Login($username: String!, $password: String!) {
+        login(username: $username, password: $password) {
+            user {
+                id
+                username
+                password
+            }
+            token
+        }
+    }
+`;
+
+
+export const CURRENT_USER = gql`
+    query CurrentUser {
+        currentUser {
+            username
+            id
+            posts {
+                title
+                id
+            }
+        }
+    }
+`;

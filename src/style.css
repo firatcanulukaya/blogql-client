@@ -9,6 +9,7 @@
     scroll-behavior: smooth;
     background: none;
     font-family: "Poppins", sans-serif;
+    color: #fff;
 }
 
 html{
@@ -19,4 +20,43 @@ html{
 .card{
 border-bottom: 1px solid #404040;
     color: #bababa;
+}
+
+input{
+    border: none;
+    border-bottom: 1px solid #bababa;
+    background: none;
+    outline: none;
+    color: #bababa;
+    font-size: 1.2rem;
+    font-family: "Poppins", sans-serif;
+    margin-left: 1rem;
+}
+
+label{
+    color: #bababa;
+    font-size: 1.2rem;
+    font-family: "Poppins", sans-serif;
+}
+
+form{
+    height: 100vh;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-direction: column;
+}
+
+button{
+    background-color: #bababa;
+    color: #1a1a1a;
+    border: none;
+    border-radius: 5px;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+    margin-top: 1rem;
 }
