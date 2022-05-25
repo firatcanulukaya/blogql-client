@@ -86,3 +86,11 @@ export const CURRENT_USER = gql`
         }
     }
 `;
+
+export const CREATE_POST = gql`
+    mutation CreatePost($title: String!, $description: String!) {
+        createPost(title: $title, description: $description) {
+              id
+        }
+    }
+`;
