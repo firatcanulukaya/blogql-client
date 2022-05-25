@@ -6,6 +6,9 @@ export const GET_POSTS = gql`
             title
             description
             id
+            createdBy{
+                id
+            }
             comments {
                 id
                 text
@@ -59,7 +62,6 @@ export const POST_DELETE_SUB = gql`
     }
 `;
 
-
 export const LOGIN = gql`
     mutation Login($username: String!, $password: String!) {
         login(username: $username, password: $password) {
@@ -72,7 +74,6 @@ export const LOGIN = gql`
         }
     }
 `;
-
 
 export const CURRENT_USER = gql`
     query CurrentUser {
@@ -90,7 +91,34 @@ export const CURRENT_USER = gql`
 export const CREATE_POST = gql`
     mutation CreatePost($title: String!, $description: String!) {
         createPost(title: $title, description: $description) {
-              id
+            id
+        }
+    }
+`;
+
+export const DELETE_POST = gql`
+    mutation DeletePost($deletePostId: ID!) {
+        deletePost(id: $deletePostId)
+    }
+`;
+
+export const GET_POST = gql`
+    query Post($postId: ID!) {
+        post(id: $postId) {
+            id
+            title
+            description
+            createdBy {
+                id
+            }
+        }
+    }
+`;
+
+export const UPDATE_POST = gql`
+    mutation UpdatePost($updatePostId: ID!, $data: PostUpdate!) {
+        updatePost(id: $updatePostId, data: $data) {
+            id
         }
     }
 `;

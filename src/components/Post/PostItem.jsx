@@ -1,11 +1,21 @@
-import {useQuery} from "@apollo/client";
-import {GET_POSTS} from "../../apollo/getGQL";
+import {Link} from "react-router-dom";
+import {useQuery, useApolloClient, useMutation} from "@apollo/client";
+import {CURRENT_USER, GET_POSTS, DELETE_POST} from "../../apollo/getGQL";
+import alertify from "alertifyjs";
 
 const PostItem = () => {
+    const client = useApolloClient();
     const {loading, error, data} = useQuery(GET_POSTS);
+    const [deletePost] = useMutation(DELETE_POST, {
+        onCompleted: () => {
+            alertify.success("Post successfully deleted");
+        },
+    });
+
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error :(</p>;
 
+    let {currentUser} = client.readQuery({query: CURRENT_USER});
     return (
         <>
             {
@@ -13,11 +23,24 @@ const PostItem = () => {
                     <div key={post.id} className="card">
                         <h1>{post.title}</h1>
                         <p>{post.description}</p>
-                        <button className="btn">asdasd</button>
+
+                        {currentUser?.id === post.createdBy?.id ? <button className="btn danger"
+                                                                          onClick={() => {
+                                                                              deletePost({
+                                                                                  variables: {
+                                                                                      deletePostId: post.id
+                                                                                  }
+                                                                              });
+                                                                              alertify.success("Deleting post...");
+                                                                          }}>Delete</button> : ''}
+
+                        {currentUser?.id === post.createdBy?.id ?
+                            <Link to={`/edit/${post.id}`} className="btn">Edit</Link> : ''}
+
                     </div>
                 ))
             }
-            </>
+        </>
     )
 }
 

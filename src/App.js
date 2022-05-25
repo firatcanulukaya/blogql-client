@@ -5,10 +5,11 @@ import Posts from "./components/Post/Posts";
 import UpdateControl from "./apollo/UpdateControl";
 import Login from "./components/Login";
 import Create from "./components/Post/Create";
+import EditPost from "./components/Post/Edit/EditPost";
 import alertify from "alertifyjs";
 
 const App = () => {
-    alertify.set('notifier','position', 'bottom-center');
+    alertify.set('notifier', 'position', 'bottom-center');
     return (
         <>
             <UpdateControl/>
@@ -17,6 +18,7 @@ const App = () => {
                 <Route path="/" element={<Login/>}/>
                 <Route path="/explore" element={<Posts/>}/>
                 <Route path="/create" element={<Create/>}/>
+                <Route path="/edit/:id" element={<EditPost/>}/>
             </Routes>
 
         </>
