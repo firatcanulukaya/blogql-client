@@ -2,6 +2,7 @@ import {useState} from "react";
 import {useNavigate} from "react-router-dom"
 import {useMutation} from "@apollo/client";
 import {LOGIN} from "../apollo/getGQL";
+import alertify from "alertifyjs";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -11,10 +12,10 @@ const Login = () => {
         onError(err) {
             switch (err.message) {
                 case "Invalid credentials":
-                    alert("Username or password is incorrect");
+                    alertify.error("Username or password is incorrect");
                     break;
                 default:
-                    alert("Something went wrong");
+                    alertify.error("Something went wrong");
                     break;
             }
         }
@@ -24,6 +25,7 @@ const Login = () => {
 
     if (data) {
         localStorage.setItem('token', data.login.token);
+        alertify.success("Logged in.");
         return navigate('/explore');
     }
 
