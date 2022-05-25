@@ -11,9 +11,6 @@ const Blogs = () => {
     if (userError) return navigate('/');
     if (error) return <p>Error :(</p>;
 
-
-    console.log(userData?.currentUser);
-
     return (
         <div style={{display: "flex", gap: "2rem", flexDirection: "column", padding: "20px"}}>
             {
@@ -24,6 +21,12 @@ const Blogs = () => {
                     </div>
                 ))
             }
+
+            <div className="user">
+                <h1>Welcome {userData?.currentUser?.username}</h1>
+                <p>ID: {userData?.currentUser?.id}</p>
+                <button>Logout</button>
+            </div>
         </div>
     )
 }
