@@ -1,12 +1,18 @@
 import "./style.css";
+import {Routes, Route} from "react-router-dom";
 import Blogs from "./Blogs";
 import UpdateControl from "./apollo/UpdateControl";
+import Login from "./components/Login";
 
 const App = () => {
     return (
         <>
-            <Blogs />
-            <UpdateControl />
+            <UpdateControl/>
+
+            <Routes>
+                <Route path="/" element={<Login/>}/>
+                <Route path="/explore" element={<Blogs/>}/>
+            </Routes>
 
         </>
     );
