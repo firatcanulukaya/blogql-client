@@ -1,4 +1,4 @@
-import {useNavigate} from "react-router-dom";
+import {useNavigate, Link} from "react-router-dom";
 import {useQuery} from "@apollo/client";
 import {CURRENT_USER} from "../apollo/getGQL";
 
@@ -19,6 +19,8 @@ const UserCard = () => {
                 navigate('/')
             }}>Logout
             </button>
+            <Link className="btn" to="/explore">Explore</Link>
+            <Link className="btn" to="/create">Create</Link>
         </div>
     )
 }
