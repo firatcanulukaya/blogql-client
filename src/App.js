@@ -1,6 +1,6 @@
 import "./style.css";
 import {Routes, Route} from "react-router-dom";
-import Blogs from "./Blogs";
+import Blogs from "./components/Blogs";
 import UpdateControl from "./apollo/UpdateControl";
 import Login from "./components/Login";
 

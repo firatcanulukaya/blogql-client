@@ -1,6 +1,6 @@
 import {useNavigate} from "react-router-dom"
 import {useQuery} from "@apollo/client";
-import {GET_POSTS, CURRENT_USER} from "./apollo/getGQL";
+import {GET_POSTS, CURRENT_USER} from "../apollo/getGQL";
 
 const Blogs = () => {
     const navigate = useNavigate();
@@ -25,7 +25,11 @@ const Blogs = () => {
             <div className="user">
                 <h1>Welcome {userData?.currentUser?.username}</h1>
                 <p>ID: {userData?.currentUser?.id}</p>
-                <button>Logout</button>
+                <button className="logoutBtn" onClick={() => {
+                    localStorage.removeItem("token");
+                    navigate('/')
+                }}>Logout
+                </button>
             </div>
         </div>
     )

@@ -12,17 +12,17 @@
     color: #fff;
 }
 
-html{
+html {
     background-color: #1a1a1a;
 }
 
 
-.card{
-border-bottom: 1px solid #404040;
+.card {
+    border-bottom: 1px solid #404040;
     color: #bababa;
 }
 
-input{
+input {
     border: none;
     border-bottom: 1px solid #bababa;
     background: none;
@@ -33,13 +33,13 @@ input{
     margin-left: 1rem;
 }
 
-label{
+label {
     color: #bababa;
     font-size: 1.2rem;
     font-family: "Poppins", sans-serif;
 }
 
-form{
+form {
     height: 100vh;
     display: flex;
     align-content: center;
@@ -49,7 +49,7 @@ form{
     flex-direction: column;
 }
 
-button{
+.loginBtn {
     background-color: #bababa;
     color: #1a1a1a;
     border: none;
@@ -59,4 +59,30 @@ button{
     font-family: "Poppins", sans-serif;
     cursor: pointer;
     margin-top: 1rem;
+}
+
+.logoutBtn{
+    background-color: #bababa;
+    color: #1a1a1a;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.user {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: #3d3d3d;
+    padding: 5px 20px;
+    border-radius: 3px;
+}
+
+.user h1{
+    color: #fff;
+    font-size: 1.2rem;
+    font-family: "Poppins", sans-serif;
 }
