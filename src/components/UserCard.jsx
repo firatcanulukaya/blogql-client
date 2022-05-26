@@ -1,9 +1,9 @@
 import {useNavigate, Link} from "react-router-dom";
-import {useQuery} from "@apollo/client";
+import {useQuery, useApolloClient} from "@apollo/client";
 import {CURRENT_USER} from "../apollo/getGQL";
 
 const UserCard = () => {
-
+    const client = useApolloClient();
     const navigate = useNavigate();
     const {data: userData, error: userError, loading: userLoading} = useQuery(CURRENT_USER);
 
@@ -16,7 +16,7 @@ const UserCard = () => {
             <p>ID: {userData?.currentUser?.id}</p>
             <button className="logoutBtn" onClick={() => {
                 localStorage.removeItem("token");
-                navigate('/')
+                client.resetStore().then(r => navigate('/'));
             }}>Logout
             </button>
             <Link className="btn" to="/explore">Explore</Link>
