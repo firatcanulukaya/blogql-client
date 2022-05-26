@@ -1,8 +1,9 @@
 import {useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom"
 import {useMutation, useApolloClient, useQuery} from "@apollo/client";
-import {CURRENT_USER, GET_POST} from "../../../graphql/GQL/queries";
-import {UPDATE_POST} from "../../../graphql/GQL/mutations";
+import {CURRENT_USER, GET_POST} from "../../../features/graphql/GQL/queries";
+import {UPDATE_POST} from "../../../features/graphql/GQL/mutations";
+// @ts-ignore
 import alertify from "alertifyjs";
 
 const EditPost = () => {
@@ -35,7 +36,7 @@ const EditPost = () => {
             query: CURRENT_USER,
             variables: {}
         });
-        if (!currentUser?.currentUser.posts.find(post => post.id === id)) return navigate('/explore');
+        if (!currentUser?.currentUser.posts.find((post: { id: string | undefined; }) => post.id === id)) return navigate('/explore');
     }, []);
 
     useEffect(() => {

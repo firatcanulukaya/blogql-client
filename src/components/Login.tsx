@@ -1,14 +1,15 @@
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom"
 import {useMutation} from "@apollo/client";
-import {LOGIN} from "../graphql/GQL/mutations";
+import {LOGIN} from "../features/graphql/GQL/mutations";
+// @ts-ignore
 import alertify from "alertifyjs";
 
 const Login = () => {
     const navigate = useNavigate();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [login, {data, loading, error}] = useMutation(LOGIN, {
+    const [login, {data, loading}] = useMutation(LOGIN, {
         onError(err) {
             switch (err.message) {
                 case "Invalid credentials":

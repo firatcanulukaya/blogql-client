@@ -2,29 +2,33 @@ import "./style.css";
 import "alertifyjs/build/css/alertify.min.css";
 import {Routes, Route, useNavigate} from "react-router-dom";
 import Posts from "./components/Post/Posts";
-import UpdateControl from "./graphql/UpdateControl";
+import UpdateControl from "./features/graphql/UpdateControl";
 import Login from "./components/Login";
 import Create from "./components/Post/Create";
 import EditPost from "./components/Post/Edit";
 import AddComment from "./components/Post/Comment/AddComment";
+// @ts-ignore
 import alertify from "alertifyjs";
 import {useEffect} from "react";
 
 const App = () => {
     const navigate = useNavigate();
     alertify.set('notifier', 'position', 'bottom-center');
+    const token: string | null = localStorage.getItem('token')
 
     useEffect(() => {
-        if(localStorage.getItem('token')) {
-           navigate("/explore")
+        if (token) {
+            navigate("/explore")
         }
-    }, [])
+    }, [navigate])
 
     return (
         <>
+            {/*@ts-ignore*/}
             <UpdateControl/>
 
             <Routes>
+                {/*@ts-ignore*/}
                 <Route path="/" element={<Login/>}/>
                 <Route path="/explore" element={<Posts/>}/>
                 <Route path="/create" element={<Create/>}/>

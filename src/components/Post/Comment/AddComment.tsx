@@ -1,8 +1,9 @@
 import {useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom"
 import {useMutation, useApolloClient, useQuery} from "@apollo/client";
-import {CREATE_COMMENT} from "../../../graphql/GQL/mutations";
-import {GET_POST} from "../../../graphql/GQL/queries";
+import {CREATE_COMMENT} from "../../../features/graphql/GQL/mutations";
+import {GET_POST} from "../../../features/graphql/GQL/queries";
+// @ts-ignore
 import alertify from "alertifyjs";
 
 const AddComment = () => {

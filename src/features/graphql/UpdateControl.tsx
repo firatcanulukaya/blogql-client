@@ -1,7 +1,7 @@
+import {useEffect} from "react";
 import {useSubscription, useApolloClient} from "@apollo/client";
 import {POST_SUB, POST_UPDATE_SUB, POST_DELETE_SUB} from "./GQL/subscriptions";
 import {GET_POSTS} from "./GQL/queries";
-import {useEffect} from "react";
 
 const UpdateControl = () => {
     const client = useApolloClient();
@@ -94,7 +94,7 @@ const UpdateControl = () => {
         try {
             console.log("delete");
             const {posts} = client.readQuery({query: GET_POSTS});
-            let deletedPost = posts.filter(post => post.id !== PostDeleteSub.postDeletion.id);
+            let deletedPost = posts.filter((post: { id: string; }) => post.id !== PostDeleteSub.postDeletion.id);
 
             client.writeQuery({
                 query: GET_POSTS,

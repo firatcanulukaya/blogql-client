@@ -1,14 +1,18 @@
 import {useNavigate, Link} from "react-router-dom";
 import {useQuery, useApolloClient} from "@apollo/client";
-import {CURRENT_USER} from "../graphql/GQL/queries";
+import {CURRENT_USER} from "../features/graphql/GQL/queries";
 
 const UserCard = () => {
     const client = useApolloClient();
     const navigate = useNavigate();
-    const {data: userData, loading: userLoading} = useQuery(CURRENT_USER);
+    //TODO data için interface yaz
+    const {data: userData, loading: userLoading}: {data: any, loading: boolean} = useQuery(CURRENT_USER);
+    const token: string | null = localStorage.getItem("token")
 
-    if (userLoading) return <p>Loading...</p>;
-    if (!localStorage.getItem("token")) return navigate('/');
+    if (userLoading) { // @ts-ignore
+        return <p>Loading...</p>;
+    }
+    if (!token) return navigate('/');
 
     return (
         <div className="user">
