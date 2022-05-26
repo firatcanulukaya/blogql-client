@@ -1,7 +1,8 @@
 import {useState} from "react";
 import {useNavigate} from "react-router-dom"
 import {useMutation} from "@apollo/client";
-import {CREATE_POST, CURRENT_USER} from "../../../apollo/getGQL";
+import {CREATE_POST} from "../../../graphql/GQL/mutations";
+import {CURRENT_USER} from "../../../graphql/GQL/queries";
 import alertify from "alertifyjs";
 
 const CreatePost = () => {

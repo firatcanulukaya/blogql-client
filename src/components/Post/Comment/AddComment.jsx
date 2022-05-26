@@ -1,7 +1,8 @@
 import {useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom"
 import {useMutation, useApolloClient, useQuery} from "@apollo/client";
-import {CREATE_COMMENT, GET_POST, UPDATE_POST} from "../../../apollo/getGQL";
+import {CREATE_COMMENT} from "../../../graphql/GQL/mutations";
+import {GET_POST} from "../../../graphql/GQL/queries";
 import alertify from "alertifyjs";
 
 const AddComment = () => {
@@ -30,14 +31,14 @@ const AddComment = () => {
     });
 
     useEffect(() => {
-        if(error){
+        if (error) {
             alertify.error("Something went wrong");
             navigate('/explore');
             console.log(error)
         }
     }, [error]);
 
-    if(loading) return <p>Loading...</p>;
+    if (loading) return <p>Loading...</p>;
     return (
         <div className="login">
             <form onSubmit={e => {

@@ -1,7 +1,8 @@
 import {useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom"
 import {useMutation, useApolloClient, useQuery} from "@apollo/client";
-import {CURRENT_USER, GET_POST, UPDATE_POST} from "../../../apollo/getGQL";
+import {CURRENT_USER, GET_POST} from "../../../graphql/GQL/queries";
+import {UPDATE_POST} from "../../../graphql/GQL/mutations";
 import alertify from "alertifyjs";
 
 const EditPost = () => {

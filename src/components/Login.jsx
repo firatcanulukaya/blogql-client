@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom"
 import {useMutation} from "@apollo/client";
-import {LOGIN} from "../apollo/getGQL";
+import {LOGIN} from "../graphql/GQL/mutations";
 import alertify from "alertifyjs";
 
 const Login = () => {

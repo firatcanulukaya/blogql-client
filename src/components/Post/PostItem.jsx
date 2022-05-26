@@ -1,6 +1,7 @@
 import {Link} from "react-router-dom";
 import {useQuery, useApolloClient, useMutation} from "@apollo/client";
-import {CURRENT_USER, GET_POSTS, DELETE_POST} from "../../apollo/getGQL";
+import {CURRENT_USER, GET_POSTS} from "../../graphql/GQL/queries";
+import {DELETE_POST} from "../../graphql/GQL/mutations";
 import alertify from "alertifyjs";
 import Comments from "./Comment/Comments";
 

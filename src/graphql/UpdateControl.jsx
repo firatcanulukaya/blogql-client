@@ -1,5 +1,6 @@
 import {useSubscription, useApolloClient} from "@apollo/client";
-import {POST_SUB, GET_POSTS, POST_UPDATE_SUB, POST_DELETE_SUB} from "./getGQL";
+import {POST_SUB, POST_UPDATE_SUB, POST_DELETE_SUB} from "./GQL/subscriptions";
+import {GET_POSTS} from "./GQL/queries";
 import {useEffect} from "react";
 
 const UpdateControl = () => {
@@ -56,7 +57,7 @@ const UpdateControl = () => {
         /* 
         Buradaki iki dependecy'i yazmamızın sebebi
         PostSub - subscription'dan gelen verinin kontrolü
-        client - apollo client'ın kontrolü (değişirse veya bağlantı 
+        client - graphql client'ın kontrolü (değişirse veya bağlantı
                                             durumunda değişiklik 
                                             olursa bu da güncellensin)
 
