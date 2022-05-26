@@ -15,13 +15,17 @@ const UserCard = () => {
         <div className="user">
             <h1>Welcome {userData?.currentUser?.username}</h1>
             <p>ID: {userData?.currentUser?.id}</p>
-            <button className="logoutBtn" onClick={() => {
-                localStorage.removeItem("token");
-                client.resetStore().then(r => navigate('/'));
-            }}>Logout
-            </button>
-            <Link className="btn" to="/explore">Explore</Link>
-            <Link className="btn" to="/create">Create</Link>
+
+            <div className="buttons">
+                <button className="logoutBtn" onClick={() => {
+                    localStorage.removeItem("token");
+                    client.resetStore().then(r => navigate('/'));
+                }}>Logout
+                </button>
+                <Link className="btn" to="/explore">Explore</Link>
+                <Link className="btn" to="/create">Create</Link>
+            </div>
+
         </div>
     )
 }

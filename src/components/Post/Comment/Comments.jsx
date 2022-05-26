@@ -17,8 +17,9 @@ const Comments = ({post, user}) => {
                 {
                     post.comments.length > 0 &&
                     post.comments.map((comment, index) => (
-                        <p className="commentText" key={index}>{comment.text} -
-                            @{comment.createdBy.username}
+                        <div className="commentText" key={index}>
+                            <p>{comment.text} -</p>
+                            <p>@{comment.createdBy.username}</p>
                             {
                                 user.id === comment.createdBy.id ? <button className="btn danger" style={{
                                     fontSize: "12px",
@@ -34,11 +35,10 @@ const Comments = ({post, user}) => {
                                 }
                                 }>delete</button> : ''
                             }
-                        </p>
+                        </div>
                     ))
-
                 }
-                <Link to={`/comment/${post.id}`}>Add Comment</Link>
+                <Link to={`/comment/${post.id}`} className="addComment">Add Comment</Link>
             </details>
 
         </>

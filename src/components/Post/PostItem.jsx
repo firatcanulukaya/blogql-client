@@ -22,23 +22,27 @@ const PostItem = () => {
             {
                 data?.posts?.map(post => (
                     <div key={post.id} className="card">
-                        <h1>{post.title}</h1>
-                        <p>{post.description}</p>
+                        <h1 className="postTitle">{post.title}</h1>
+                        <p className="postDesc">{post.description}</p>
 
                         <Comments post={post} user={currentUser} posts={data}/>
 
-                        {currentUser.id === post.createdBy.id ? <button className="btn danger"
-                                                                        onClick={() => {
-                                                                            deletePost({
-                                                                                variables: {
-                                                                                    deletePostId: post.id
-                                                                                }
-                                                                            });
-                                                                            alertify.success("Deleting post...");
-                                                                        }}>Delete</button> : ''}
+                        <div className="buttons">
+                            {currentUser.id === post.createdBy.id ? <button className="btn danger"
+                                                                            onClick={() => {
+                                                                                deletePost({
+                                                                                    variables: {
+                                                                                        deletePostId: post.id
+                                                                                    }
+                                                                                });
+                                                                                alertify.success("Deleting post...");
+                                                                            }}>Delete</button> : ''}
 
-                        {currentUser.id === post.createdBy.id ?
-                            <Link to={`/edit/${post.id}`} className="btn">Edit</Link> : ''}
+                            {currentUser.id === post.createdBy.id ?
+                                <Link to={`/edit/${post.id}`} className="btn">Edit</Link> : ''}
+                        </div>
+
+                        <div className="author"><p>author: @{post.createdBy.username}</p></div>
 
                     </div>
                 ))

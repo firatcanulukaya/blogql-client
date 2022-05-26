@@ -3,7 +3,7 @@ import UserCard from "../UserCard";
 
 const Posts = () => {
     return (
-        <div style={{display: "flex", gap: "2rem", flexDirection: "column", padding: "20px"}}>
+        <div style={{display: "flex", gap: "2rem", flexDirection: "row", padding: "20px", flexWrap: "wrap"}}>
             <UserCard/>
             <PostItem/>
         </div>
