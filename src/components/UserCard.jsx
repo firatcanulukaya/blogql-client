@@ -1,6 +1,7 @@
 import {useNavigate, Link} from "react-router-dom";
 import {useQuery, useApolloClient} from "@apollo/client";
 import {CURRENT_USER} from "../apollo/getGQL";
+import {useEffect} from "react";
 
 const UserCard = () => {
     const client = useApolloClient();
@@ -8,7 +9,7 @@ const UserCard = () => {
     const {data: userData, error: userError, loading: userLoading} = useQuery(CURRENT_USER);
 
     if (userLoading) return <p>Loading...</p>;
-    if (userError) return navigate('/');
+    if (!localStorage.getItem("token")) return navigate('/');
 
     return (
         <div className="user">

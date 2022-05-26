@@ -16,7 +16,6 @@ html {
     background-color: #1a1a1a;
 }
 
-
 .card {
     display: flex;
     align-items: center;
@@ -26,6 +25,7 @@ html {
     padding: 5px 10px;
     border-radius: 2px;
     opacity: .8;
+    font-size: 1.2rem;
 }
 
 input {
@@ -67,7 +67,7 @@ form {
     margin-top: 1rem;
 }
 
-.logoutBtn{
+.logoutBtn {
     background-color: #e00000;
     color: #fff;
     border: none;
@@ -82,11 +82,11 @@ form {
     transition: opacity .2s ease-in-out;
 }
 
-.logoutBtn:hover{
+.logoutBtn:hover {
     opacity: 1;
 }
 
-.btn{
+.btn {
     background-color: #bababa;
     color: #1a1a1a;
     border: none;
@@ -106,7 +106,7 @@ form {
     color: #fff;
 }
 
-.btn:hover{
+.btn:hover {
     opacity: 1;
 }
 
@@ -120,8 +120,19 @@ form {
     z-index: 10;
 }
 
-.user h1{
+.user h1 {
     color: #fff;
     font-size: 1.2rem;
+    font-family: "Poppins", sans-serif;
+}
+
+.commentSummary {
+    font-size: 1.7rem;
+    cursor: pointer;
+    color: #00d293;
+}
+
+.commentText {
+    font-size: 1rem;
     font-family: "Poppins", sans-serif;
 }

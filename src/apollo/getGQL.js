@@ -1,19 +1,21 @@
 import {gql} from "@apollo/client";
 
 export const GET_POSTS = gql`
-    query Posts($first: Int, $after: Int) {
-        posts(first: $first, after: $after) {
+    query Posts {
+        posts {
+            id
             title
             description
-            id
-            createdBy{
+            createdBy {
                 id
+                username
             }
             comments {
                 id
                 text
                 createdBy {
                     username
+                    id
                 }
             }
         }
@@ -33,6 +35,7 @@ export const POST_SUB = gql`
                 id
                 text
                 createdBy {
+                    id
                     username
                 }
             }
@@ -53,6 +56,7 @@ export const POST_UPDATE_SUB = gql`
                 id
                 text
                 createdBy {
+                    id
                     username
                 }
             }
@@ -116,6 +120,15 @@ export const GET_POST = gql`
             description
             createdBy {
                 id
+                username
+            }
+            comments {
+                text
+                id
+                createdBy {
+                    username
+                    id
+                }
             }
         }
     }
@@ -126,5 +139,19 @@ export const UPDATE_POST = gql`
         updatePost(id: $updatePostId, data: $data) {
             id
         }
+    }
+`;
+
+export const CREATE_COMMENT = gql`
+    mutation CreateComment($text: String!, $postId: ID!) {
+        createComment(text: $text, postId: $postId) {
+            id
+        }
+    }
+`;
+
+export const DELETE_COMMENT = gql`
+    mutation DeleteComment($deleteCommentId: ID!) {
+        deleteComment(id: $deleteCommentId)
     }
 `;

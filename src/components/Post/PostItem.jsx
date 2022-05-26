@@ -2,6 +2,7 @@ import {Link} from "react-router-dom";
 import {useQuery, useApolloClient, useMutation} from "@apollo/client";
 import {CURRENT_USER, GET_POSTS, DELETE_POST} from "../../apollo/getGQL";
 import alertify from "alertifyjs";
+import Comments from "./Comment/Comments";
 
 const PostItem = () => {
     const client = useApolloClient();
@@ -23,6 +24,8 @@ const PostItem = () => {
                     <div key={post.id} className="card">
                         <h1>{post.title}</h1>
                         <p>{post.description}</p>
+
+                        <Comments post={post} user={currentUser} posts={data}/>
 
                         {currentUser.id === post.createdBy.id ? <button className="btn danger"
                                                                         onClick={() => {
