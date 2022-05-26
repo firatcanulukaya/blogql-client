@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom"
 import {useMutation} from "@apollo/client";
 import {LOGIN} from "../apollo/getGQL";
@@ -20,6 +20,10 @@ const Login = () => {
             }
         }
     });
+
+    useEffect(() => {
+        if (localStorage.getItem("token")) return navigate("/explore");
+    }, [])
 
     if (loading) return 'Logging in...';
 
