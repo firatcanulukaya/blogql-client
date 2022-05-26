@@ -22,16 +22,18 @@ const Login = () => {
     });
 
     useEffect(() => {
+        if (data) {
+            localStorage.setItem('token', data.login.token);
+            alertify.success("Logged in.");
+            return navigate('/explore');
+        }
+    }, [data]);
+
+    useEffect(() => {
         if (localStorage.getItem("token")) return navigate("/explore");
     }, [])
 
     if (loading) return 'Logging in...';
-
-    if (data) {
-        localStorage.setItem('token', data.login.token);
-        alertify.success("Logged in.");
-        return navigate('/explore');
-    }
 
     return (
         <div className="login">
