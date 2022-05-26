@@ -26,6 +26,9 @@ export const POST_SUB = gql`
             title
             description
             id
+            createdBy{
+                id
+            }
             comments {
                 id
                 text
@@ -43,6 +46,9 @@ export const POST_UPDATE_SUB = gql`
             title
             description
             id
+            createdBy{
+                id
+            }
             comments {
                 id
                 text
