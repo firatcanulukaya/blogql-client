@@ -24,17 +24,17 @@ const PostItem = () => {
                         <h1>{post.title}</h1>
                         <p>{post.description}</p>
 
-                        {currentUser?.id === post.createdBy?.id ? <button className="btn danger"
-                                                                          onClick={() => {
-                                                                              deletePost({
-                                                                                  variables: {
-                                                                                      deletePostId: post.id
-                                                                                  }
-                                                                              });
-                                                                              alertify.success("Deleting post...");
-                                                                          }}>Delete</button> : ''}
+                        {currentUser.id === post.createdBy.id ? <button className="btn danger"
+                                                                        onClick={() => {
+                                                                            deletePost({
+                                                                                variables: {
+                                                                                    deletePostId: post.id
+                                                                                }
+                                                                            });
+                                                                            alertify.success("Deleting post...");
+                                                                        }}>Delete</button> : ''}
 
-                        {currentUser?.id === post.createdBy?.id ?
+                        {currentUser.id === post.createdBy.id ?
                             <Link to={`/edit/${post.id}`} className="btn">Edit</Link> : ''}
 
                     </div>
