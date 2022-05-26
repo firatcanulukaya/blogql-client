@@ -5,7 +5,7 @@ import Posts from "./components/Post/Posts";
 import UpdateControl from "./apollo/UpdateControl";
 import Login from "./components/Login";
 import Create from "./components/Post/Create";
-import EditPost from "./components/Post/Edit/EditPost";
+import EditPost from "./components/Post/Edit";
 import alertify from "alertifyjs";
 
 const App = () => {
